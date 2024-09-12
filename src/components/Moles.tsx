@@ -8,11 +8,14 @@ const getRandomElement = (elements: string[]) => {
 
 export const Moles = () => {
   const [mole, setMole] = useState(" ");
+  const [holes, setHoles] = useState([""]);
   //   const randomMoleIndex = getRandomMole(allMoles);
 
   useEffect(() => {
     const filterMoles = allMoles.filter((word) => word != mole);
     const myTimeOut = setTimeout(() => {
+      const holes = [...filterMoles];
+      setHoles(holes);
       setMole(getRandomElement(filterMoles));
     }, 2000);
     return () => clearTimeout(myTimeOut);
@@ -20,7 +23,12 @@ export const Moles = () => {
 
   return (
     <div>
-      <div>{mole}</div>
+      <div className="grid grid-cols-">
+        <div className="h-24 w-24 border-2">{mole}</div>
+        {holes.map((x) => (
+          <div className="h-24 w-24 border-2">{x}</div>
+        ))}
+      </div>
     </div>
   );
 };
