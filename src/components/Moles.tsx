@@ -9,9 +9,9 @@ const getRandomElement = (elements: string[]) => {
 export const Moles = () => {
   const [mole, setMole] = useState(" ");
   //   const randomMoleIndex = getRandomMole(allMoles);
-  const filterMoles = allMoles.filter((word) => word != mole);
 
   useEffect(() => {
+    const filterMoles = allMoles.filter((word) => word != mole);
     const myTimeOut = setTimeout(() => {
       setMole(getRandomElement(filterMoles));
     }, 2000);
@@ -21,7 +21,6 @@ export const Moles = () => {
   return (
     <div>
       <div>{mole}</div>
-      <div>{filterMoles}</div>;
     </div>
   );
 };
