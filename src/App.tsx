@@ -27,6 +27,7 @@ const Moles = () => {
     const filterHoles = allHoles.filter((word) => word != mole);
     const myTimeOut = setTimeout(() => {
       setMole(getRandomElement(filterHoles));
+      setClckedMole("");
     }, 2000);
     return () => clearTimeout(myTimeOut);
   }, [mole]);
